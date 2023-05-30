@@ -1,5 +1,7 @@
+import clsx from 'clsx';
 import * as React from 'react';
 
+import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
 import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
@@ -20,24 +22,72 @@ import Vercel from '~/svg/Vercel.svg';
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
+type Color = (typeof colorList)[number];
+
 export default function HomePage() {
+  const [mode, setMode] = React.useState<'dark' | 'light'>('light');
+
+  const [color, setColor] = React.useState<Color>('sky');
+
+  function toggleMode() {
+    return mode === 'dark' ? setMode('light') : setMode('dark');
+  }
+
+  const textColor = mode === 'dark' ? 'text-gray-300' : 'text-gray-600';
+
   return (
     <Layout>
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
       <main>
-        <section className='bg-white'>
+        <section
+          className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
+        >
           <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
             <Vercel className='text-5xl' />
-            <h1 className='mt-4'>
+            <h1 className={clsx('mt-4', textColor)}>
               Next.js + Tailwind CSS + TypeScript Starter
             </h1>
-            <p className='mt-2 text-sm text-gray-800'>
+            <p className={clsx('mt-2 text-sm', textColor)}>
               A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
               Import, Seo, Link component, pre-configured with Husky{' '}
             </p>
-            <p className='mt-2 text-sm text-gray-700'>
+
+            <div className='mt-8 flex flex-wrap gap-2'>
+              <Button
+                onClick={toggleMode}
+                variant={mode === 'dark' ? 'light' : 'dark'}
+              >
+                Set to {mode === 'dark' ? 'light' : 'dark'}
+              </Button>
+              {/* <Button onClick={randomize}>Randomize CSS Variable</Button> */}
+            </div>
+            <div className='mt-2 flex flex-wrap gap-2'>
+              <select
+                name='color'
+                id='color'
+                value={color}
+                className={clsx(
+                  'block max-w-xs rounded',
+                  mode === 'dark'
+                    ? 'bg-dark border border-gray-600'
+                    : 'border-gray-300 bg-white',
+                  'focus:border-primary-400 focus:ring-primary-400 focus:outline-none focus:ring'
+                )}
+                onChange={(e) => setColor(e.target.value as Color)}
+              >
+                {colorList.map((c) => (
+                  <option key={c} value={c}>
+                    {c}
+                  </option>
+                ))}
+              </select>
+              <ButtonLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/src/styles/colors.css'>
+                Check list of colors
+              </ButtonLink>
+            </div>
+            <p className={clsx('mt-2 text-sm', textColor)}>
               <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
                 See the repository
               </ArrowLink>
@@ -60,11 +110,9 @@ export default function HomePage() {
               />
             </UnstyledLink>
 
-            <footer className='absolute bottom-2 text-gray-700'>
+            <footer className={clsx('absolute bottom-2', textColor)}>
               © {new Date().getFullYear()} By{' '}
-              <UnderlineLink href='https://theodorusclarence.com?ref=tsnextstarter'>
-                Theodorus Clarence
-              </UnderlineLink>
+              <UnderlineLink href='#'>Raka Grarizki Arsetyo</UnderlineLink>
             </footer>
           </div>
         </section>
@@ -72,3 +120,28 @@ export default function HomePage() {
     </Layout>
   );
 }
+
+const colorList = [
+  'slate',
+  'gray',
+  'zinc',
+  'neutral',
+  'stone',
+  'red',
+  'orange',
+  'amber',
+  'yellow',
+  'lime',
+  'green',
+  'emerald',
+  'teal',
+  'cyan',
+  'sky',
+  'blue',
+  'indigo',
+  'violet',
+  'purple',
+  'fuchsia',
+  'pink',
+  'rose',
+] as const;
