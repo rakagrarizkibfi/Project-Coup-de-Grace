@@ -3,10 +3,8 @@ import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
 /**
@@ -16,7 +14,6 @@ import Seo from '@/components/Seo';
  * You can override the next-env if the type is important to you
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
-import Vercel from '~/svg/Vercel.svg';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
 // Before you begin editing, follow all comments with `STARTERCONF`,
@@ -44,14 +41,16 @@ export default function HomePage() {
         <section
           className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
         >
+          <header className='layout absolute top-0 min-w-full bg-blue-700 px-2 py-2'>
+            <p className='text-white'>Muerta</p>
+          </header>
+          {/* <div className='layout absolute top-0 min-w-full bg-blue-700 px-2 py-2'>
+            <p className='text-white'>Pernambucano</p>
+          </div> */}
           <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-            <Vercel className='text-5xl' />
-            <h1 className={clsx('mt-4', textColor)}>
-              Next.js + Tailwind CSS + TypeScript Starter
-            </h1>
+            <h1 className={clsx('mt-4', textColor)}>Muerta Finance</h1>
             <p className={clsx('mt-2 text-sm', textColor)}>
-              A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
-              Import, Seo, Link component, pre-configured with Husky{' '}
+              Your Trusty Financial Companion
             </p>
 
             <div className='mt-8 flex flex-wrap gap-2'>
@@ -87,28 +86,10 @@ export default function HomePage() {
                 Check list of colors
               </ButtonLink>
             </div>
-            <p className={clsx('mt-2 text-sm', textColor)}>
-              <ArrowLink href='https://github.com/theodorusclarence/ts-nextjs-tailwind-starter'>
-                See the repository
-              </ArrowLink>
-            </p>
 
             <ButtonLink className='mt-6' href='/components' variant='light'>
               See all components
             </ButtonLink>
-
-            <UnstyledLink
-              href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Ftheodorusclarence%2Fts-nextjs-tailwind-starter'
-              className='mt-4'
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                width='92'
-                height='32'
-                src='https://vercel.com/button'
-                alt='Deploy with Vercel'
-              />
-            </UnstyledLink>
 
             <footer className={clsx('absolute bottom-2', textColor)}>
               © {new Date().getFullYear()} By{' '}
