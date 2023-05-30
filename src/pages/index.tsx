@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
+import Header from '@/components/layout/Header';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
 import UnderlineLink from '@/components/links/UnderlineLink';
@@ -41,12 +42,7 @@ export default function HomePage() {
         <section
           className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
         >
-          <header className='layout absolute top-0 min-w-full bg-blue-700 px-2 py-2'>
-            <p className='text-white'>Muerta</p>
-          </header>
-          {/* <div className='layout absolute top-0 min-w-full bg-blue-700 px-2 py-2'>
-            <p className='text-white'>Pernambucano</p>
-          </div> */}
+          <Header />
           <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
             <h1 className={clsx('mt-4', textColor)}>Muerta Finance</h1>
             <p className={clsx('mt-2 text-sm', textColor)}>
