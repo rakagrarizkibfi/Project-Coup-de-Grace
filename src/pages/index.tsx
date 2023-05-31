@@ -2,10 +2,11 @@ import clsx from 'clsx';
 import * as React from 'react';
 
 import Button from '@/components/buttons/Button';
+import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
+import Hero from '@/components/layout/Hero';
 import Layout from '@/components/layout/Layout';
 import ButtonLink from '@/components/links/ButtonLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
 import Seo from '@/components/Seo';
 
 /**
@@ -43,8 +44,9 @@ export default function HomePage() {
           className={clsx(mode === 'dark' ? 'bg-dark' : 'bg-white', color)}
         >
           <Header />
+          <Hero />
           <div className='layout relative flex min-h-screen flex-col items-center justify-center py-12 text-center'>
-            <h1 className={clsx('mt-4', textColor)}>Muerta Finance</h1>
+            <h1 className={clsx('mt-4', textColor)}>Mertua Finance</h1>
             <p className={clsx('mt-2 text-sm', textColor)}>
               Your Trusty Financial Companion
             </p>
@@ -86,12 +88,8 @@ export default function HomePage() {
             <ButtonLink className='mt-6' href='/components' variant='light'>
               See all components
             </ButtonLink>
-
-            <footer className={clsx('absolute bottom-2', textColor)}>
-              © {new Date().getFullYear()} By{' '}
-              <UnderlineLink href='#'>Raka Grarizki Arsetyo</UnderlineLink>
-            </footer>
           </div>
+          <Footer />
         </section>
       </main>
     </Layout>

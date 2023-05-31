@@ -10,8 +10,8 @@ const links = [
 
 export default function Header() {
   return (
-    <div className=''>
-      <header className='sticky top-0 z-50 bg-white'>
+    <div className='sticky top-0'>
+      <header className=' bg-white'>
         <div className='layout flex h-8 items-center justify-between'>
           <UnstyledLink
             href='/'
@@ -19,6 +19,34 @@ export default function Header() {
           >
             Beranda
           </UnstyledLink>
+          <div className=''>
+            <ul className='flex space-x-[36px]'>
+              <li>
+                <UnstyledLink
+                  href='/'
+                  className='text-sm font-semibold text-slate-400 hover:text-green-500 '
+                >
+                  Informasi Perusahaan
+                </UnstyledLink>
+              </li>
+              <li>
+                <UnstyledLink
+                  href='/'
+                  className='text-sm font-semibold text-slate-400 hover:text-green-500'
+                >
+                  Karir
+                </UnstyledLink>
+              </li>
+              <li>
+                <UnstyledLink
+                  href='/'
+                  className='text-sm font-semibold text-slate-400 hover:text-green-500'
+                >
+                  Blog
+                </UnstyledLink>
+              </li>
+            </ul>
+          </div>
           <nav>
             <ul className='flex items-center justify-between space-x-4'>
               {links.map(({ href, label }) => (
@@ -35,7 +63,7 @@ export default function Header() {
           </nav>
         </div>
       </header>
-      <div className=' relative bg-blue-700 px-2 py-6'>
+      <div className=' bg-blue-700 px-2 py-6'>
         <div className='layout flex h-8 items-center justify-between'>
           <UnstyledLink
             href='/'
@@ -43,13 +71,50 @@ export default function Header() {
           >
             <NextImage
               useSkeleton
-              className='w-32 md:w-40'
+              className=''
               src='/logo/logo-bfi-72.png'
               width='54'
               height='54'
               alt='Icon-Logo'
             />
           </UnstyledLink>
+          <div className=''>
+            <ul className='flex space-x-24'>
+              <li
+                className='font-bold
+              '
+              >
+                <UnstyledLink
+                  href='/'
+                  className='gap-8 text-lg font-bold text-white  hover:text-green-500 '
+                >
+                  Produk
+                </UnstyledLink>
+              </li>
+              <li
+                className='font-bold
+              '
+              >
+                <UnstyledLink
+                  href='/'
+                  className='gap-8 text-lg font-bold text-white hover:text-green-500'
+                >
+                  Layanan
+                </UnstyledLink>
+              </li>
+              <li
+                className='font-bold 
+              '
+              >
+                <UnstyledLink
+                  href='/'
+                  className='gap-8 text-lg font-bold text-white hover:text-green-500'
+                >
+                  Promo
+                </UnstyledLink>
+              </li>
+            </ul>
+          </div>
           <nav>
             <ul className='flex items-center justify-between space-x-4'>
               <UnstyledLink
